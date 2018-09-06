@@ -38,7 +38,8 @@ class App extends Component {
 
         const socket = socketIOClient(this.state.endpoint);
         socket.on('move', (coords) => {
-            console.log(coords)
+            console.log(coords);
+            document.getElementById(coords).innerHTML = "X";
         });
 
         return (
