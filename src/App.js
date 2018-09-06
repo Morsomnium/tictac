@@ -11,9 +11,10 @@ class App extends Component {
         this.lastMove = [];
     }
 
-    send = () => {
-        console.log("Send clicked." + this.lastMove);
+    send = (mark) => {
+        console.log("Send clicked" + this.lastMove);
         const socket = socketIOClient(this.state.endpoint);
+        this.lastMove.push(mark);
         socket.emit('move', this.lastMove)
     };
 
@@ -39,17 +40,18 @@ class App extends Component {
         const socket = socketIOClient(this.state.endpoint);
         socket.on('move', (coords) => {
             console.log(coords);
-            document.getElementById(coords).innerHTML = "X";
+            document.getElementById(coords.slice(0,2)).innerHTML = coords[2];
         });
 
         return (
             <div>
                 <table>
                     <tbody>
-                        {this.generateTable(4, 5)}
+                        {this.generateTable(10, 10)}
                     </tbody>
                 </table>
-                <button onClick={this.send}>SEND</button>
+                <button onClick={() => this.send("X")}>SEND X</button>
+                <button onClick={() => this.send("O")}>SEND O</button>
             </div>
         )
     }

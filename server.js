@@ -12,7 +12,7 @@ io.on('connection', socket => {
     console.log('New User connected');
     socket.on('move', (coords) => {
         console.log('Move was placed on ', coords);
-        io.sockets.emit('move', coords)
+        io.sockets.emit('move', (coords))
     });
 
     socket.on('disconnect', () => {
