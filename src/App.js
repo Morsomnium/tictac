@@ -44,7 +44,7 @@ class App extends Component {
         });
 
         return (
-            <div>
+            <div className={"centered-div"}>
                 <table>
                     <tbody>
                         {this.generateTable(10, 10)}
