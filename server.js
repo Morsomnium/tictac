@@ -1,15 +1,23 @@
-const io = require('socket.io')();
+const express = require('express');
+const http = require('http');
+const socketIO = require('socket.io');
 
-io.on('connection', (client) => {
-    client.on('subscribeToTimer', (interval) => {
-        console.log('client is subscribing to timer with interval ', interval);
-        setInterval(() => {
-            client.emit('timer', new Date());
-        }, interval);
+const port = 4001;
+
+const app = express();
+const server = http.createServer(app);
+const io = socketIO(server);
+
+io.on('connection', socket => {
+    console.log('New User connected');
+    socket.on('move', (coords) => {
+        console.log('Move was placed on ', coords);
+        io.sockets.emit('move', coords)
     });
+
+    socket.on('disconnect', () => {
+        console.log('User disconnected')
+    })
 });
 
-const port = 8000;
-
-io.listen(port);
-console.log('listening on port ', port);
+server.listen(port, () => console.log(`Listening on port ${port}`));
