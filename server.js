@@ -2,10 +2,10 @@ const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
 
-const port = 80;
+const port = 4001;
 
 const app = express();
-const server = http.Server(app);
+const server = http.createServer(app);
 const io = socketIO(server);
 
 io.on('connection', socket => {
