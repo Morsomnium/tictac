@@ -6,7 +6,7 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            endpoint: "http://tictac.looga.net/socket"
+            endpoint: "https://tictac.looga.net/socket"
         };
         this.lastMove = [];
     }
