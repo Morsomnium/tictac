@@ -1,11 +1,11 @@
 const express = require('express');
-const http = require('http');
+const https = require('https');
 const socketIO = require('socket.io');
 
 const port = 4001;
 
 const app = express();
-const server = http.createServer(app);
+const server = https.createServer(app);
 const io = socketIO(server);
 
 io.on('connection', socket => {
