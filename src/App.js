@@ -50,8 +50,10 @@ class App extends Component {
                         {this.generateTable(20, 20)}
                     </tbody>
                 </table>
-                <button onClick={() => this.send("X")}>SEND X</button>
-                <button onClick={() => this.send("O")}>SEND O</button>
+                <button onClick={() => this.send("&#9875;")}>SEND &#9875;</button>
+                <button onClick={() => this.send("&#9891;")}>SEND &#9891;</button>
+                <button onClick={() => this.send("&#9959;")}>SEND &#9959;</button>
+                <button onClick={() => this.send("&#9924;")}>SEND &#9924;</button>
             </div>
         )
     }
