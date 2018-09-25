@@ -28,7 +28,7 @@ class App extends Component {
         for (let i = 0; i < Y; i++){
             let children = [];
             for (let j = 0; j < X; j++){
-                children.push(<td id={[j,i]}> <button onClick={() => this.move(j, i)}>{j}{i}</button></td>)
+                children.push(<td id={[j,i]}> <button onClick={() => this.move(j, i)}>{(j < 10) ? "0" + j : j}{(i < 10) ? "0" + i : i}</button></td>)
             }
             table.push(<tr>{children}</tr>)
         }
