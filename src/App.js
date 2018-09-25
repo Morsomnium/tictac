@@ -47,7 +47,7 @@ class App extends Component {
             <div className={"centered-div"}>
                 <table>
                     <tbody>
-                        {this.generateTable(10, 10)}
+                        {this.generateTable(20, 20)}
                     </tbody>
                 </table>
                 <button onClick={() => this.send("X")}>SEND X</button>
